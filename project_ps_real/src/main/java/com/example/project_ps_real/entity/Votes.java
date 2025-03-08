@@ -46,7 +46,7 @@ public class Votes {
         this.answer = answer;
         this.isLiked = isLiked;
     }
-
+/*
     public Votes(Long voteId, User user, Post post, Answers answer, Boolean isLiked) {
         this.voteId = voteId;
         this.user = user;
@@ -54,4 +54,6 @@ public class Votes {
         this.answer = answer;
         this.isLiked = isLiked;
     }
+
+ */
 }
