@@ -14,8 +14,6 @@ public class User {
     @Column(name="user_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long userId;
-   // @Version
-    //private Integer version;
 
     @Column(name="name")
     private String name;
@@ -39,8 +37,8 @@ public class User {
     private Boolean isBanned;
 
     @OneToMany
-    @JoinColumn(name = "tag_id")  // Cheie străină către User
-    private List<Tag> tag;
+    @JoinColumn(name = "user_id")  // Cheie străină către User
+    private List<Post> posts;
 
     public User(Long userId, String name, String password, String email, String phoneNumber, Float score, Boolean isAdmin, Boolean isBanned) {
         this.userId = userId;

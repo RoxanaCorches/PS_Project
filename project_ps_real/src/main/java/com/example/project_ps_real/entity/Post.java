@@ -1,5 +1,6 @@
 package com.example.project_ps_real.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 import java.util.Date;
@@ -17,6 +18,7 @@ public class Post {
 
     @ManyToOne
     @JoinColumn(name="user_id")
+    @JsonIgnore
     private User user;
 
     @Column(name="date")
@@ -49,7 +51,6 @@ public class Post {
    //private List<Post> posts;
     private List<Tag> tags;
     public Post(){
-
     }
 
     public Post(Long postId, User user, Date date, String title, String text, String image, String status, Integer likes, Integer dislikes, List<Tag> tags) {
@@ -63,5 +64,21 @@ public class Post {
         this.likes = likes;
         this.dislikes = dislikes;
         this.tags = tags;
+    }
+
+    @Override
+    public String toString() {
+        return "Post{" +
+                "postId=" + postId +
+                ", user=" + user +
+                ", date=" + date +
+                ", title='" + title + '\'' +
+                ", text='" + text + '\'' +
+                ", image='" + image + '\'' +
+                ", status='" + status + '\'' +
+                ", likes=" + likes +
+                ", dislikes=" + dislikes +
+                ", tags=" + tags +
+                '}';
     }
 }

@@ -1,6 +1,5 @@
 package com.example.project_ps_real.controller;
 
-import com.example.project_ps_real.entity.Post;
 import com.example.project_ps_real.entity.User;
 import com.example.project_ps_real.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;

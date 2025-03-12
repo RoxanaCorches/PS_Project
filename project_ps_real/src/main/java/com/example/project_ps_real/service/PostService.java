@@ -6,6 +6,9 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+
+import static org.springframework.data.jpa.domain.AbstractPersistable_.id;
+
 @Service
 public class PostService {
     private PostRepository postRepository;
@@ -17,9 +20,11 @@ public class PostService {
         return (List<Post>) this.postRepository.findAll();
     }
 
-    public Post findById(Long id) {
+    public Post findByIdPost(Long id) {
         Optional<Post> post = this.postRepository.findById(id);
         if(post.isPresent()){
+            System.out.println(post.get());
+            System.out.println("bbbhjsgbf");
             return post.get();
         }else{
             return null;
@@ -27,15 +32,30 @@ public class PostService {
     }
 
     public Post addPost(Post post) {
+        System.out.println("Post: " + post.toString());
         return this.postRepository.save(post);
     }
 
-    public String deletePostById(Long id) {
-        try {
-            this.postRepository.deleteById(id);
-            return "Entry successfully deleted!";
-        }catch(Exception e){
-            return "Failed to delete entry with id:" + id;
+    public Post updatePost(Post post) {
+        Optional<Post> isPost=postRepository.findById(post.getPostId());
+        if(isPost.isPresent()){
+            System.out.println("Post with id:"+post.getPostId());
+            return this.postRepository.save(post);
+        }else{
+            System.out.println("Post is not found!");
+            return null;
         }
     }
+    public String deletePostById(Long id) {
+        Optional<Post> post = this.postRepository.findById(id);
+        if(post.isPresent()) {
+            this.postRepository.deleteById(id);
+            return "Entry successfully deleted!";
+        }
+        else {
+            return "Failed to delete user with id " + id;
+        }
+    }
+
+
 }

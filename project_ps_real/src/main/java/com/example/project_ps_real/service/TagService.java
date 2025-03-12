@@ -37,7 +37,7 @@ public class TagService {
         }
 
     }
-
+/*
     public Tag addTag(Tag tag,Long userId) {
         User user = userRepository.findById(userId).orElse(null);
         if (user == null) {
@@ -46,6 +46,6 @@ public class TagService {
         tag.setUser(user);
         return tagRepository.save(tag);
     }
-
+*/
 
 }

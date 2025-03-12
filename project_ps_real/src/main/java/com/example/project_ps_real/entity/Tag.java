@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.List;
+
 @Entity
 @Table(name ="tag")
 @Setter
@@ -17,9 +19,11 @@ public class Tag {
     @Column(name="name")
     private String name;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id")  // Cheie străină către User
-    private User user;
+
+
+    @ManyToMany(mappedBy = "tags") // Legătura inversă de la Post -> Tag
+    private List<Post> posts;
+
 
     public Tag(Long tagId, String name) {
         this.tagId = tagId;
@@ -29,4 +33,5 @@ public class Tag {
     public Tag() {
 
     }
+
 }

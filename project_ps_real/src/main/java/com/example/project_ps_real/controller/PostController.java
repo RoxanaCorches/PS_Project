@@ -22,8 +22,8 @@ public class PostController {
     @GetMapping("/getById")
     @ResponseBody
     public Post getPostById(@RequestParam("id") Long id) {
-        Post post =this.postService.findById(id);
-        return post;
+        System.out.println("Received request for post ID: " + id);
+        return this.postService.findByIdPost(id);
     }
 
     @PostMapping("/addPost")
@@ -35,11 +35,12 @@ public class PostController {
     @PutMapping("/updatePost")
     @ResponseBody
     public Post updatePost(@RequestBody Post post) {
-        return this.postService.addPost(post);
+        return this.postService.updatePost(post);
     }
     @DeleteMapping("/deleteById")
     @ResponseBody
-    public String deletePostById(@RequestParam Long id) {
+    public String deletePostById(@RequestParam("id") Long id) {
+        System.out.println("Received request for post ID: " + id);
         return this.postService.deletePostById(id);
 
     }

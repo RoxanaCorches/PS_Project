@@ -23,10 +23,12 @@ public class TagController {
     public Tag getTagById(Long id) {
         return this.tagService.getTagById(id);
     }
-
+/*
     @PostMapping("/addTag")
     @ResponseBody
     public Tag addTag(@RequestBody Tag tag, @RequestParam Long userId) {
         return tagService.addTag(tag, userId);
     }
+
+ */
 }
