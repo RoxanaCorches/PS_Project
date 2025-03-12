@@ -42,7 +42,7 @@ public class PostService {
             System.out.println("Post with id:"+post.getPostId());
             return this.postRepository.save(post);
         }else{
-            System.out.println("Post is not found!");
+            System.out.println("Post is not found");
             return null;
         }
     }
