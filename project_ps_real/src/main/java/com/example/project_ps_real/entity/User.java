@@ -2,7 +2,7 @@ package com.example.project_ps_real.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
-
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import java.util.List;
 
 @Entity
@@ -51,7 +51,13 @@ public class User {
         this.isBanned = isBanned;
     }
 
-    public User() {
-
+    public User() {}
+    public void setPassword(String password) {
+        if (password == null) {
+            this.password = null;
+        } else {
+            BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+            this.password = encoder.encode(password);
+        }
     }
 }

@@ -20,7 +20,6 @@ public class Tag {
     private String name;
 
 
-
     @ManyToMany(mappedBy = "tags") // Legătura inversă de la Post -> Tag
     private List<Post> posts;
 
@@ -30,8 +29,6 @@ public class Tag {
         this.name = name;
     }
 
-    public Tag() {
-
-    }
+    public Tag() {}
 
 }
